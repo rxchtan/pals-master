@@ -1,0 +1,54 @@
+.landing-container {
+    text-align: center;
+    width: 100%;
+    padding: 20px;
+}
+
+.landing-container h4 {
+    font-family: "Open Sans";
+    font-style: bold;
+}
+
+h4 {
+    font-size: 2.28rem;
+    line-height: 110%;
+    margin: 1.52rem 0rem 0;
+}
+
+.landing-container p {
+    font-size: 20px;
+    font-style: italic;
+    font-family: "Open Sans";
+}
+
+img#palsLogo {
+    width: 35%;
+    margin-left: 33%;
+    position: relative;
+    padding-top: 10px;
+}
+
+@media only screen and (max-width: 768px) {
+    img#palsLogo {
+        width: 35%;
+        margin-left: 33%;
+        position: relative;
+    }
+
+    h4 {
+        font-size: 2.28rem;
+        line-height: 110%;
+        margin: 1.52rem 0rem 0;
+    }
+}
+
+@media only screen and (max-width: 1962px) {
+    img#palsLogo1 {
+        width: 7%;
+        margin-top: 0.3%;
+    }
+    .reg-log {
+        float: right;
+        margin-top: -0.4%;
+    }
+}

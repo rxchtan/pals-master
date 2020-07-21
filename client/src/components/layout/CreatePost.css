@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css?family=Amatic+SC');
+ 
+
+.Title {
+    /* float: right; */
+    margin-left: 20%;
+    margin-top: 10%;
+}
+
+.heading {
+  font-family: Comic Sans MS;
+  font-size: 250%;
+  /* box-shadow: -7px -6px 4px 0px #1f2f4d;
+  background-color: white; */
+}
+
+h8.first-choice {
+  font-size: 140%;
+  color: black;
+}
+
+h8.second-choice {
+  font-size: 140%;
+  color: black;
+}
+
+.createpost-container {
+  margin-left: 4%;
+  padding: 5%;
+}

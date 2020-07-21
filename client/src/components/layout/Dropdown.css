@@ -1,0 +1,57 @@
+.dropdown {
+    position: relative;
+    display: inline-block;
+} 
+
+#arrow {
+    position: absolute;
+    top: 25px;
+    float: right;
+    right: 20px;
+}
+
+.drop ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    top:0px;
+    right:0px;
+    width: 200px;
+    position: absolute;
+    z-index: 1;
+}
+Link {
+    color: white;
+}
+.drop li {
+    position: absolute;
+    border-bottom: 1px solid;
+    background-color: #1e2f4d;
+    width: 200px;
+}
+.drop li:last-child {
+    position: absolute;
+    top: 130px;
+    border-bottom: none;
+}
+
+#dropdown-button {
+    width:200px;
+    height:65px;
+    text-align: center;
+    background-color: #1e2f4d;
+    border-style: solid;
+    border-width: 0.8px;
+    border-color: white;
+}
+/*
+.button:before{
+    content:"";
+    position:absolute;
+    width:0px;
+    height:0px;
+    border: 10px solid;
+    right:6px;
+    top:0px;
+}
+*/

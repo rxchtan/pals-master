@@ -1,0 +1,17 @@
+.all-comments {
+    background-color: white;
+    padding: 2px 20px 10px 20px;
+    margin: 10px;
+    border-radius: 40px;
+    border-color: #ccddef;
+    border-style: solid;
+    border-width: 2px;
+}
+
+#reply::placeholder {
+    color: #1e2f4d;
+  }
+
+  #reply-reply {
+      text-indent: 10px;
+  }

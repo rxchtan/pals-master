@@ -1,0 +1,17 @@
+.corner {
+    margin: 10px;
+    border-radius: 10px;
+    border-color: #ccddef;
+    border-style: solid;
+    border-width: 2px;
+    width: 11%;
+    position: relative;
+    float: right;
+    padding: 0px 4px;
+    
+}
+#like-button {
+    width: 190px;
+    height: 55px;
+    padding: 0px;
+}

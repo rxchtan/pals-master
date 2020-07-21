@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css?family=Amatic+SC');
+
+img {
+    position: relative;
+    margin-left: 40px;
+    margin-right: auto;
+    float: left;
+}
+
+.nav li {
+    list-style-type: none;
+    border-right: 1px solid #bbb;
+}
+
+.nav li:last-child {
+    border-right: none;
+}
+
+.nav li a {
+    display: block;
+}
+
+
+.nav-bar {
+    background-color:#1E2F4D;
+    height: 70px;
+    width: 100%
+}
+
+.reg-log {
+    float: right;
+}
+
+#regbutton {
+    margin-right: 10px;
+    color: #1E2F4D;
+    background-color: #ccddef;
+    width: 100px;
+    height: 45px;
+    letter-spacing: 1.5px;
+    border-radius: 5px;
+    padding: 2px;
+}
+
+#loginbutton {
+    height: 45px;
+    width: 100px;
+    letter-spacing: 1.5px;
+    padding: 2px;
+    color: #1E2F4D;
+    background-color: #ccddef;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+body {
+	margin: 0;
+	height: 100%;
+	background-image: linear-gradient(to top, #ccddef 0%, #f1e5f3 100%);
+	background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+img#palsLogo2 {
+    width: 10.4%;
+    margin-top: 1%;
+}
+
+
+@media only screen and (max-width: 768px) {
+    .reg-log {
+        float: right;
+        margin-top: -9%;
+    }
+
+    #reg-btn {
+        margin-right: -40px;
+        color: #1E2F4D;
+        letter-spacing: 1.5px;
+        border-radius: 5px;
+        padding: 10px;
+    }
+
+    #log-btn {
+        width: 100px;
+        letter-spacing: 1.5px;
+        padding: 7.5px;
+        color: #1E2F4D;
+        border-radius: 5px;
+        margin-right: 10px;
+        margin-left: 30px;
+    }
+
+    img#palsLogo1 {
+        width: 18%;
+        margin-top: 0.6%;
+    }
+
+    .nav li a {
+        display: block;
+        font-size: 70%;
+        font-style: normal;
+    }
+    .nav-bar {
+        background-color: #1E2F4D;
+        height: 70px;
+        width: 100%;
+        position: relative;
+    }
+
+}
+
+
+
