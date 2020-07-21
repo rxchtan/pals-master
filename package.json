@@ -4,7 +4,6 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "build": "webpack",
     "start": "node server.js",
     "server": "nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -36,6 +35,5 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.4"
-  },
-  "heroku-run-build-script": true
+  }
 }
