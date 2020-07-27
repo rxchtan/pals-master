@@ -283,11 +283,11 @@ app.post('/api/userUnlike/:postId', function (req, res) {
 
 });
 
-app.get('/api/userLike/:userId', function (req, res) {
+app.get('/api/userLikes/:userId', function (req, res) {
   User.findById(req.params.userId).then(post => {
     if (!post) { return res.status(404).end(); }
     return res.status(200).json(post.liked);
-  }).catch(err => next(err));
+  }).catch(err => console.log(err));
 });
 
 /*
