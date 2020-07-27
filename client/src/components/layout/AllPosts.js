@@ -43,7 +43,6 @@ class allPosts extends Component {
     }
 
 
-
     async componentDidMount() {
         const allPosts = (await axios.get('/api/posts')).data;
         this.setState({ allPosts });

@@ -27,7 +27,7 @@ class Likes extends Component {
         const likes = postLikes.likes;
         this.setState({ likes });
 
-        if (this.props.auth.user !== "") {
+        if (this.props.auth.user.id !== null) {
             const liked = (await axios.get(`api/userLikes/${this.props.auth.user.id}`)).data;
             let count;
             if (liked.includes(this.props.post._id)) {

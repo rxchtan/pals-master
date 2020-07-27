@@ -17,7 +17,7 @@ class Profile extends Component {
 
     async componentDidMount() {
         const { user } = this.props.auth;
-        const likedPost = (await axios.get(`api/userLike/${this.props.auth.user.id}`)).data;
+        const likedPost = (await axios.get(`api/userLikes/${this.props.auth.user.id}`)).data;
         this.setState({ liked: likedPost });
         const posts = (await axios.get('/api/posts')).data;
         let likedPosts = [];
@@ -30,14 +30,15 @@ class Profile extends Component {
 
     render() {
         const { user } = this.props.auth;
-        //console.log(user);
+        //console.log(user) .split(" ")[0];
         return (
             <div style={{ height: "75vh" }} className="container">
                 <div className="row">
                     <div className="col s12">
                         <br />
                         <h3>
-                            <b>Hello there,</b> {user.name.split(" ")[0]}
+                            <b>Hello there,</b> {user.name}
+
                         </h3>
                         <br />
                         <h4>

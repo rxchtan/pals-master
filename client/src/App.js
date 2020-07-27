@@ -69,7 +69,7 @@ class App extends Component {
             {this.state.loggedIn ?
               <Switch>
                 <PrivateRoute exact path="/dashboard" component={LoggedIn} />
-                <PrivateRoute exact path="/profile" component={Profile} />
+                <Route exact path="/profile" component={Profile} />
                 <Route exact path="/" component={Landing} />
                 <Route exact path="/about" component={About} />
                 <Route exact path="/register" component={Register} />

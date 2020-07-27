@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
 import { Redirect } from "react-router-dom";
@@ -9,10 +10,11 @@ class Logout extends Component {
         e.preventDefault();
         this.props.logoutUser();
     };
+
     render() {
         const { user } = this.props.auth;
         return (
-            <button id="regbutton" onClick={this.onLogoutClick}>Logout</button>
+            <button id="regbutton" onClick={this.onLogoutClick}><Link to="/login">Logout</Link></button>
         );
     }
 }
