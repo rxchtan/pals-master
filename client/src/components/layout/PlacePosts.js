@@ -15,7 +15,9 @@ class PlacePosts extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            allPosts: null,
             posts: null,
+            postFilter: "",
         };
     }
 
@@ -23,6 +25,28 @@ class PlacePosts extends Component {
         const posts = (await axios.get('/api/posts/PlacePosts')).data;
         const filteredPosts = posts.filter(post => post.type === "place");
         this.setState({ posts: filteredPosts });
+        this.setState({ allPosts: filteredPosts })
+    }
+
+    onSubmit = e => {
+        e.preventDefault();
+        //on sub,it attempted to filter
+        console.log('Submit button wqs clicked');
+        let filteredPosts = this.state.allPosts;
+        filteredPosts = filteredPosts.filter(l => {
+            return l.country.toLowerCase().match(this.state.postFilter.toLowerCase());
+        })
+        console.log(filteredPosts);
+
+        this.setState({
+            posts: filteredPosts
+        })
+    }
+
+    handleChange = (e) => {
+        this.setState({
+            postFilter: e.target.value
+        })
     }
 
     render() {
@@ -36,6 +60,13 @@ class PlacePosts extends Component {
                         </Link>
                         <h3>About to embark on SEP but is unsure about the entire process?</h3>
                         <h4>Pals On Exchange is here to clear your doubts! </h4>
+                        <div>
+                            <label htmlFor="filter">Search by country: </label>
+                            <input type="text" id="filter"
+                                value={this.state.postFilter}
+                                onChange={this.handleChange} />
+                        </div>
+                        <button type="submit" onClick={this.onSubmit}>🔍</button>
 
                         {this.state.posts === null && <p>Loading all posts...</p>}
                         {this.state.posts && this.state.posts.map((post) => (
