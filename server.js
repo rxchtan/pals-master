@@ -240,7 +240,7 @@ app.post('/api/comments/:postId', function (req, res) {
 });
 
 app.post('/api/like/:postId', function (req, res) {
-  Post.findByIdAndUpdate(req.params.postId, { likes: req.body.likes + 1 },
+  Post.findByIdAndUpdate(req.params.postId, { likes: (req.body.likes + 1) },
     function (err) {
       if (err) {
         res.send(err);

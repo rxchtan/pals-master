@@ -45,7 +45,7 @@ class Post extends Component {
             <div>
                 <div className="container">
                     <h3>Check out your friend's review here! </h3>
-                    <Likes key={post._id} post={post} />
+                    <Likes key={post._id} post={post} user={{ user }} />
                 </div>
 
 

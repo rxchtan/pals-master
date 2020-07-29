@@ -27,7 +27,7 @@ class Likes extends Component {
         const likes = postLikes.likes;
         this.setState({ likes });
 
-        if (this.props.auth.user.id !== null) {
+        if ("name" in this.props.user.user) {
             const liked = (await axios.get(`api/userLikes/${this.props.auth.user.id}`)).data;
             let count;
             if (liked.includes(this.props.post._id)) {
@@ -51,19 +51,20 @@ class Likes extends Component {
             then(() => this.setState(prevState => ({ count: prevState.count = 1 })))
             */
         this.setState({ count: !this.state.count });
-        //console.log(this.state.count);
+        console.log(this.state.count);
         const numOfLikes = { likes: this.state.likes };
+        console.log(numOfLikes);
         const user = { user: this.props.user };
-        //console.log(user.user.user);
+        console.log(this.props.user);
         if (this.state.count === false) {
             axios.post(`api/like/${this.props.post._id}`, numOfLikes).then(this.refresh());
-            if (this.props.user) {
+            if ("name" in this.props.user.user) {
                 axios.post(`api/userLike/${this.props.post._id}`, user.user.user).then(this.refresh());
                 console.log("saved to user");
             }
         } else {
             axios.post(`api/unlike/${this.props.post._id}`, numOfLikes).then(this.refresh());
-            if (this.props.user) {
+            if ("name" in this.props.user.user) {
                 axios.post(`api/userUnlike/${this.props.post._id}`, user.user.user).then(this.refresh());
                 console.log("saved to user");
             }
