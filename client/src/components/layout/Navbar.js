@@ -28,6 +28,7 @@ class Navbar extends Component {
 
     render() {
         const { user } = this.props.auth;
+        console.log(user);
         return (
             <div>
                 <nav className="nav-bar">
@@ -40,7 +41,7 @@ class Navbar extends Component {
                         <li><a href="/about">About</a></li>
                         <li><a href="/createPost">Create Post</a></li>
                     </ul>
-                    <Dropdown />
+                    <Dropdown user={user} />
 
                     {user.name ?
                         <div className="reg-log">

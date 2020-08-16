@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 import arrowdown from '../layout/arrowdown.png';
 
 class Dropdown extends React.Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             displayMenu: false
         };
@@ -36,24 +36,72 @@ class Dropdown extends React.Component {
     */
 
     render() {
-        return (
-            <div className="dropdown" style={{ width: "200px" }} >
+        /*
+        let loggedIn = false;
+        if ("name" in this.props.user) {
+            return (
+                <div className="dropdown" style={{ width: "200px" }
+                } >
+                    <div id="dropdown-button" onClick={this.showDropdownMenu}><Link to="/allPosts">All Posts</Link><img id="arrow" src={arrowdown} alt="arrow"></img></div>
+                    {
+                        this.state.displayMenu ? (
+                            <ul className="drop">
+                                <li onClick={this.showDropdownMenu}><Link to="/ExperiencePosts">Experience</Link></li>
+                                <li onClick={this.showDropdownMenu}><Link to="/PlacePosts">Place</Link></li>
+                            </ul>
+                        ) :
+                            (
+                                null
+                            )
+                    }
+
+                </div >
+            )
+        } else {
+            return (<div className="dropdown" style={{ width: "200px" }
+            } >
                 <div id="dropdown-button" onClick={this.showDropdownMenu}><Link to="/allPosts">All Posts</Link><img id="arrow" src={arrowdown} alt="arrow"></img></div>
-                {this.state.displayMenu ? (
-                    <ul className="drop">
-                        <li onClick={this.showDropdownMenu}><Link to="/ExperiencePosts">Experience</Link></li>
-                        <li onClick={this.showDropdownMenu}><Link to="/PlacePosts">Place</Link></li>
-                    </ul>
-                ) :
-                    (
-                        null
-                    )
+                {
+                    this.state.displayMenu ? (
+                        <ul className="drop">
+                            <li onClick={this.showDropdownMenu}><Link to="/ExperiencePosts">Experience</Link></li>
+                            <li onClick={this.showDropdownMenu}><Link to="/PlacePosts">Place</Link></li>
+                        </ul>
+                    ) :
+                        (
+                            null
+                        )
                 }
 
-            </div>
+            </div >)
+        }
+    }
+    */
+        return (
+
+            <div className="dropdown" style={{ width: "200px" }
+            } >
+                <div id="dropdown-button" onClick={this.showDropdownMenu}><Link to="/allPosts">All Posts</Link><img id="arrow" src={arrowdown} alt="arrow"></img></div>
+                {
+                    this.state.displayMenu ? (
+                        <ul className="drop">
+                            <li onClick={this.showDropdownMenu}><Link to="/ExperiencePosts">Experience</Link></li>
+                            <li onClick={this.showDropdownMenu}><Link to="/PlacePosts">Place</Link></li>
+                        </ul>
+                    ) :
+                        (
+                            null
+                        )
+                }
+
+            </div >
+
+
+
 
         );
     }
 }
+
 
 export default Dropdown;

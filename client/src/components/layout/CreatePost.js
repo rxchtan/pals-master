@@ -191,11 +191,13 @@ import React, { Component } from "react";
 import { Link, withRouter, Redirect } from "react-router-dom";
 import axios from "axios";
 import './CreatePost.css';
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
 // import BorderWrapper from 'react-border-wrapper'
 
 class createPost extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             name: "postType"
         };
@@ -211,6 +213,7 @@ class createPost extends Component {
 
 
     formSubmit = e => {
+        /*
         e.preventDefault();
         console.log(this.state.selectedOption)
         if (this.state.selectedOption === "my experience") {
@@ -219,6 +222,22 @@ class createPost extends Component {
             this.props.history.push("imagePost");
         } else {
             this.props.history.push("placePost");
+        }
+        */
+
+        e.preventDefault();
+        console.log(this.state.selectedOption)
+        console.log(this.props.auth.user);
+        if ("name" in this.props.auth.user) {
+            if (this.state.selectedOption === "my experience") {
+                this.props.history.push("experiencePost");
+            } else if (this.state.selectedOption === "my memory") {
+                this.props.history.push("imagePost");
+            } else {
+                this.props.history.push("placePost");
+            }
+        } else {
+            window.alert("To share a post, create an account.")
         }
     }
 
@@ -276,4 +295,15 @@ class createPost extends Component {
     }
 }
 
-export default withRouter(createPost);
+createPost.propTypes = {
+    auth: PropTypes.object.isRequired
+};
+
+const mapStateToProps = state => ({
+    auth: state.auth
+});
+export default connect(
+    mapStateToProps
+)(createPost);
+
+//export default withRouter(createPost);

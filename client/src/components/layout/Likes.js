@@ -23,9 +23,7 @@ class Likes extends Component {
     }
 
     async componentDidMount() {
-        const postLikes = (await axios.get(`/api/posts/${this.props.post._id}`)).data;
-        const likes = postLikes.likes;
-        this.setState({ likes });
+        await this.refresh();
 
         if ("name" in this.props.user.user) {
             const liked = (await axios.get(`api/userLikes/${this.props.auth.user.id}`)).data;
@@ -55,7 +53,6 @@ class Likes extends Component {
         const numOfLikes = { likes: this.state.likes };
         console.log(numOfLikes);
         const user = { user: this.props.user };
-        console.log(this.props.user);
         if (this.state.count === false) {
             axios.post(`api/like/${this.props.post._id}`, numOfLikes).then(this.refresh());
             if ("name" in this.props.user.user) {
@@ -84,11 +81,22 @@ class Likes extends Component {
                     <p>{post.location && <img src={locationPin1} alt="place"></img>}{post.location}</p>
                     <p>{post.budget && <img src={dollar} alt="budget"></img>}{post.budget}</p>
                     <p>{post.review}</p>
-                    <div className="corner">
-                        <p>😻Likes: {this.state.likes}</p>
-                    </div>
 
-                    <p><button id="like-button" onClick={this.changeCount}> {this.state.count ? <p><img src={liked} alt="liked"></img>Unlike</p> : <p><img src={unliked} alt="unliked"></img>Like</p>} </button></p>
+                    {"name" in this.props.user.user ?
+                        <div>
+                            <div className="corner">
+                                <p>😻Likes: {this.state.likes}</p>
+                            </div>
+
+                            <p><button id="like-button" onClick={this.changeCount}> {this.state.count ? <p><img src={liked} alt="liked"></img>Unlike</p> : <p><img src={unliked} alt="unliked"></img>Like</p>} </button></p>
+
+                        </div>
+                        :
+
+                        null
+                    }
+
+
                     <Link to={`/${post._id}`}>
                         Read More...
                 </Link>
