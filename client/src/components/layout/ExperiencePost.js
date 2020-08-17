@@ -32,13 +32,16 @@ class experiencePost extends Component {
             review: this.state.review,
             type: "experience"
         };
+        if (this.state.title == null || this.state.country == null || this.state.review == null) {
+            window.alert("All fields must be filled in.");
+        } else {
 
-
-        axios.post("/api/posts", newPost).then(res => {
-            if (res.status === 200) {
-                this.props.history.push("/allPosts");
-            }
-        });
+            axios.post("/api/posts", newPost).then(res => {
+                if (res.status === 200) {
+                    this.props.history.push("/allPosts");
+                }
+            });
+        }
 
         /* upload file
         const data = new FormData();

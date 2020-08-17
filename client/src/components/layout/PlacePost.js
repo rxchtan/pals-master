@@ -34,12 +34,17 @@ class placePost extends Component {
             type: "place"
         };
 
+        if (this.state.title == "" || this.state.country == "" || this.state.category == ""
+            || this.state.location == "" || this.state.budget == "" || this.state.review == "") {
+            window.alert("All fields must be filled in.");
+        } else {
 
-        axios.post("/api/posts", newPost).then(res => {
-            if (res.status === 200) {
-                this.props.history.push("/allPosts");
-            }
-        });
+            axios.post("/api/posts", newPost).then(res => {
+                if (res.status === 200) {
+                    this.props.history.push("/allPosts");
+                }
+            });
+        }
     };
 
 
